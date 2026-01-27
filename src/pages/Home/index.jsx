@@ -1,32 +1,37 @@
-import { useState } from 'react'
-import './style.css'
-
+import { useState } from "react";
+import "./style.css";
+import Trash from "../../assets/icons8-lixeira-24.png"
 
 function Home() {
+
   return (
     <>
-      <div className='home'>
+      <div className="container">
         <form action="" className="form">
-        <div className="test">
-          <label htmlFor="">Name:</label>
-          <input type="text" required />
+          <h1>Cadastro de Usuários</h1>
 
-          <label htmlFor="">Email:</label>
-          <input type="email" required />
+          <input name="Name:" type="text" required />
 
-          <label htmlFor="">Age:</label>
-          <input type="text" required />
+          <input name="Email" type="email" required />
 
-          <div className="button">
-            <input type="submit" className="submit" />
+          <input name="Age" type="number" required />
+          <button type="button">Cadastrar</button>
+        </form>
+
+        <div>
+          <div>
+            <p>Name:</p>
+            <p>Email:</p>
+            <p>Age:</p>
           </div>
-        </div>
-      </form>
 
-      <div></div>
+          <button>
+            <img src={Trash} alt="" />
+          </button>
+        </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
