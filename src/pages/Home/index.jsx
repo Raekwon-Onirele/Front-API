@@ -1,10 +1,12 @@
-import React from "react";
-import "./Home.css";
+import { useState } from 'react'
+import './style.css'
 
-const Home = () => {
+
+function Home() {
   return (
-    <div className="home    ">
-      <form action="" className="form">
+    <>
+      <div className='home'>
+        <form action="" className="form">
         <div className="test">
           <label htmlFor="">Name:</label>
           <input type="text" required />
@@ -22,8 +24,9 @@ const Home = () => {
       </form>
 
       <div></div>
-    </div>
-  );
-};
+      </div>
+    </>
+  )
+}
 
-export default Home;
+export default Home
