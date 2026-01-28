@@ -1,8 +1,22 @@
 import { useState } from "react";
 import "./style.css";
-import Trash from "../../assets/icons8-lixeira-24.png"
+import Trash from "../../assets/icons8-lixeira-24.png";
 
 function Home() {
+  const users = [
+    {
+      id: "112121321",
+      name: "Roberto",
+      email: "raa@email",
+      age: 23,
+    },
+    {
+      id: "11233445",
+      name: "bernardo",
+      email: "baba@email",
+      age: 89,
+    },
+  ];
 
   return (
     <>
@@ -18,17 +32,19 @@ function Home() {
           <button type="button">Cadastrar</button>
         </form>
 
-        <div>
-          <div>
-            <p>Name:</p>
-            <p>Email:</p>
-            <p>Age:</p>
-          </div>
+        {users.map((user) => (
+          <div key={user.id}>
+            <div>
+              <p>Name: {user.name}</p>
+              <p>Email: {user.email}</p>
+              <p>Age: {user.age}</p>
+            </div>
 
-          <button>
-            <img src={Trash} alt="" />
-          </button>
-        </div>
+            <button>
+              <img src={Trash} alt="foto lixeira" />
+            </button>
+          </div>
+        ))}
       </div>
     </>
   );
