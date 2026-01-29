@@ -24,16 +24,16 @@ function Home() {
         <form action="" className="form">
           <h1>Cadastro de Usuários</h1>
 
-          <input name="Name:" type="text" required />
+          <input placeholder="Full name:" name="Name:" type="text" required />
 
-          <input name="Email" type="email" required />
+          <input placeholder="Email:" name="Email" type="email" required />
 
-          <input name="Age" type="number" required />
+          <input placeholder="Age:" name="Age" type="number" required />
           <button type="button">Cadastrar</button>
         </form>
 
         {users.map((user) => (
-          <div key={user.id}>
+          <div key={user.id} className="card">
             <div>
               <p>Name: {user.name}</p>
               <p>Email: {user.email}</p>
