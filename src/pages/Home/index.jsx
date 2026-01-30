@@ -1,22 +1,20 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./style.css";
 import Trash from "../../assets/icons8-lixeira-24.png";
+import api from "../../services/api"
 
 function Home() {
-  const users = [
-    {
-      id: "112121321",
-      name: "Roberto",
-      email: "raa@email",
-      age: 23,
-    },
-    {
-      id: "11233499",
-      name: "bernardo",
-      email: "babe@email",
-      age: 89,
-    },
-  ];
+  let users = [];
+
+  async function getUsers(){
+    users = await api.get("/users")
+    console.log(users)
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+  
 
   return (
     <>
@@ -35,9 +33,9 @@ function Home() {
         {users.map((user) => (
           <div key={user.id} className="card">
             <div>
-              <p>Name: {user.name}</p>
-              <p>Email: {user.email}</p>
-              <p>Age: {user.age}</p>
+              <p>Name: <span> {user.name} </span></p>
+              <p>Email: <span> {user.email} </span></p>
+              <p>Age: <span> {user.age} </span></p>
             </div>
 
             <button>
