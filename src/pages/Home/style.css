@@ -1,9 +1,10 @@
 .container {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    padding-top: 50px;
+    justify-content: center;
+    padding-top: 70px;
     overflow-x: hidden;
+    max-width: 100vw;
 }
 
 h1 {
@@ -52,6 +53,12 @@ input::-webkit-inner-spin-button {
     outline: none;
     -webkit-outer: none;
   }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: -180px 0px 0px 60px;
 }
 
 .card {

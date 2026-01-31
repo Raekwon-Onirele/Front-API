@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import Trash from "../../assets/icons8-lixeira-24.png";
-import api from "../../services/api"
+import api from "../../services/api";
 
 function Home() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
 
-  async function getUsers(){
-    const usersFromApi = await api.get("/users")
+  async function getUsers() {
+    const usersFromApi = await api.get("/users");
 
-    setUsers(usersFromApi.data)
+    setUsers(usersFromApi.data);
   }
 
   useEffect(() => {
-    getUsers()
-  }, [])
-  
+    getUsers();
+  }, []);
 
   return (
     <>
@@ -31,19 +30,27 @@ function Home() {
           <button type="button">Cadastrar</button>
         </form>
 
-        {users.map((user) => (
-          <div key={user.id} className="card">
-            <div>
-              <p>Name: <span> {user.name} </span></p>
-              <p>Email: <span> {user.email} </span></p>
-              <p>Age: <span> {user.age} </span></p>
-            </div>
+        <div className="cards">
+          {users.map((user) => (
+            <div key={user.id} className="card">
+              <div>
+                <p>
+                  Name: <span> {user.name} </span>
+                </p>
+                <p>
+                  Email: <span> {user.email} </span>
+                </p>
+                <p>
+                  Age: <span> {user.age} </span>
+                </p>
+              </div>
 
-            <button>
-              <img src={Trash} alt="foto lixeira" />
-            </button>
-          </div>
-        ))}
+              <button>
+                <img src={Trash} alt="foto lixeira" />
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
