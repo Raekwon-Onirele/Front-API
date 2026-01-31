@@ -6,7 +6,7 @@ import api from "../../services/api";
 
 function Home() {
   const [users, setUsers] = useState([]);
-  const [editingUserId, setEditingUserId] = useState(null)
+  const [editingUserId, setEditingUserId] = useState(null);
 
   const inputName = useRef();
   const inputEmail = useRef();
@@ -27,8 +27,8 @@ function Home() {
 
     getUsers();
   }
-  function MostrarValor(user) {
-    setEditingUserId(user.id)
+  function updateValue(user) {
+    setEditingUserId(user.id);
     inputName.current.value = user.name;
     inputEmail.current.value = user.email;
     inputAge.current.value = user.age;
@@ -84,13 +84,16 @@ function Home() {
             required
             ref={inputAge}
           />
-          <button type="button" onClick={() => {
-            if (editingUserId) {
-              updateUser(editingUserId)
-            } else {
-              createUsers()
-            }
-          }}> 
+          <button
+            type="button"
+            onClick={() => {
+              if (editingUserId) {
+                updateUser(editingUserId);
+              } else {
+                createUsers();
+              }
+            }}
+          >
             Cadastrar
           </button>
         </form>
@@ -110,21 +113,23 @@ function Home() {
                 </p>
               </div>
 
-              <button>
-                <img
-                  className="edit"
-                  src={Edit}
-                  alt="foto mais"
-                  onClick={() => MostrarValor(user)}
-                />
-              </button>
-              <button>
-                <img
-                  src={Trash}
-                  alt="foto lixeira"
-                  onClick={() => deleteUsers(user.id)}
-                />
-              </button>
+              <div className="buttons">
+                <button>
+                  <img
+                    className="edit"
+                    src={Edit}
+                    alt="foto mais"
+                    onClick={() => updateValue(user)}
+                  />
+                </button>
+                <button>
+                  <img
+                    src={Trash}
+                    alt="foto lixeira"
+                    onClick={() => deleteUsers(user.id)}
+                  />
+                </button>
+              </div>
             </div>
           ))}
         </div>

@@ -90,6 +90,11 @@ input::-webkit-inner-spin-button {
     }
 }
 
+.buttons {
+  display: flex;
+}
+
 .edit {
   width: 30px;
+
 }
