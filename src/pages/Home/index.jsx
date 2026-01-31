@@ -1,14 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 import Trash from "../../assets/icons8-lixeira-24.png";
 import api from "../../services/api"
 
 function Home() {
-  let users = [];
+  const [users, setUsers] = useState([])
 
   async function getUsers(){
-    users = await api.get("/users")
-    console.log(users)
+    const usersFromApi = await api.get("/users")
+
+    setUsers(usersFromApi.data)
   }
 
   useEffect(() => {
